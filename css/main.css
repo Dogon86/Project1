@@ -1,0 +1,74 @@
+/*font-family: 'Merriweather', serif;*/
+/*font-family: 'PT Sans Caption', sans-serif;*/
+html {
+    font-family: 'PT Sans Caption', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.header {
+    /*../ - це підняття на рівеньвверх по каталогу а потім */
+    /*заходиться в потрібну папку*/
+    background: #343c4e url("../img/bg/bg-header.jpg");
+
+    /*для того щоб фон не повторявся а була тільки одна картинка*/
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /*далі робим так щоб картинка розтягувалась і заповняла*/
+    /*ввесь блок в якому вона знаходиться*/
+    background-size: cover;
+
+    /*робимо висоту хедера 100% (vh) в залежності від вікна в якому*/
+    /*ми переглядаємо*/
+    height: 100vh;
+
+    /*стилізуєм текст*/
+    color: white;
+    text-align: center;
+
+    /*вирівнюєм текст по вертикалі*/
+    /*за допомогою флексбоксу*/
+    display: flex;
+
+    /*за замовчуванням флекс йде в рядок */
+    /*міняєм значення на колонку*/
+    flex-direction: column;
+
+    /*вирівнюєм по горизонталі*/
+    align-items: center;
+
+    /*по вертикалі*/
+    justify-content: center;
+
+    /*робимо позицію батьківську в хедера*/
+    position: relative;
+}
+
+.header__title {
+    font-size: 56px;
+    /*line-height: 62px;*/
+    margin-bottom: 30px;
+    font-family: 'Merriweather', serif;
+    margin-top: -50px;
+}
+
+.header__slogan {
+    font-size: 28px;
+    line-height: 42px;
+
+}
+
+.header__arrow {
+    font-size: 48px;
+    /*background: red;*/
+    width: 60px;
+    height: 50px;
+
+    /*половина від width: 60px;*/
+    margin-left: -30px;
+
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+}
