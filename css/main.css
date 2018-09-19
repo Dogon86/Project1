@@ -1,14 +1,59 @@
 /*font-family: 'Merriweather', serif;*/
 /*font-family: 'PT Sans Caption', sans-serif;*/
-html {
+html body {
     font-family: 'PT Sans Caption', sans-serif;
     font-size: 16px;
     line-height: 1.5;
 }
 
+/*прибираєм відступи внизу картинки які встановлені за замовчуванням*/
+img {
+   display: inline-block;
+}
+/* ............................................................
+                      GRID
+     ..........................................................*/
+
+.container {
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+
+}
+/*очистка потоків обтікання яка появилась через float*/
+.row::after {
+    /*очищаєм потоки обтікання як зліва так і справа*/
+    clear: both;
+
+    /*пустий елемент тому що по іншому псевдоелемент не спрацює*/
+    content: "";
+
+    /*для коректного відображення в старих і нових браузерах*/
+    display: table;
+}
+
+.col-4 {
+    width: 360px;
+    margin-right: 30px;
+    float: left;
+}
+
+/*забираєм відступ 30рх в останньої колонки*/
+.col-4:last-child {
+    margin-right: 0px;
+}
+
+/* ............................................................
+                      HEADER
+     ..........................................................*/
+
 .header {
     /*../ - це підняття на рівеньвверх по каталогу а потім */
     /*заходиться в потрібну папку*/
+    /*колір вказується на випадок якщо картинка не загрузиться*/
     background: #343c4e url("../img/bg/bg-header.jpg");
 
     /*для того щоб фон не повторявся а була тільки одна картинка*/
@@ -45,16 +90,18 @@ html {
     position: relative;
 }
 
-.header__title {
+.header__title h1 {
     font-size: 56px;
+    font-weight: normal;
     /*line-height: 62px;*/
     margin-bottom: 30px;
     font-family: 'Merriweather', serif;
     margin-top: -50px;
 }
 
-.header__slogan {
+.header__slogan h2 {
     font-size: 28px;
+    font-weight: normal;
     line-height: 42px;
 
 }
@@ -71,4 +118,59 @@ html {
     position: absolute;
     bottom: 50px;
     left: 50%;
+}
+
+ /* ............................................................
+                      PORTFOLIO
+     ..........................................................*/
+.portfolio {
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+
+/*відступи між рядами*/
+.portfoli-item {
+    margin-bottom: 20px;
+}
+
+.title h3 {
+    font-size: 46px;
+    margin-bottom: 60px;
+    font-family: 'Merriweather', serif;
+    font-weight: normal;
+    text-align: center;
+}
+
+.portfolio-item__img {
+    margin-bottom: 17px;
+}
+
+.portfolio-item__title {
+    font-size: 24px;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.portfolio-item__text {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.portfolio-item__title a {
+    text-decoration: none;
+    color: black;
+    /*міняєм підкреслення ссилки*/
+    /*ставим білим кольором це знадобиться потім*/
+    border-bottom: 1px solid #ffffff;
+}
+
+/*як поводитиметься ссилка при наведенні на неї*/
+.portfolio-item__title a:hover {
+    color: #0052C2;
+    border-color: rgba (0, 82, 194, 0.3);
+}
+
+.portfolio-item__text p {
+    margin-top: 0px;
+    margin-bottom: 15px;
 }
