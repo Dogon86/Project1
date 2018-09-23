@@ -4,11 +4,18 @@ html body {
     font-family: 'PT Sans Caption', sans-serif;
     font-size: 16px;
     line-height: 1.5;
+    /*пропишем мінімальну ширину при якій включиться горизонтальна прокрутка*/
+    min-width: 320px;
 }
 
 /*прибираєм відступи внизу картинки які встановлені за замовчуванням*/
 img {
    display: inline-block;
+}
+
+/* за замовчуванням стоїть box-sizing: content-box;  зірочка вибирає всі*/
+* {
+    box-sizing: border-box;
 }
 /* ............................................................
                       GRID
@@ -43,7 +50,7 @@ img {
 
 /*забираєм відступ 30рх в останньої колонки*/
 .col-4:last-child {
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 /* ............................................................
@@ -147,6 +154,11 @@ img {
     margin-bottom: 17px;
 }
 
+.portfolio-item__img img {
+    max-width: 100%;
+    height: auto;
+}
+
 .portfolio-item__title {
     font-size: 24px;
     line-height: normal;
@@ -169,27 +181,87 @@ img {
 /*як поводитиметься ссилка при наведенні на неї*/
 .portfolio-item__title a:hover {
     color: #0052C2;
-    border-color: rgba (0, 82, 194, 0.3);
+    border-color: rgba(0, 82, 194, 0.3);
 }
 
 .portfolio-item__text p {
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 15px;
 }
 
-/* ............................................................
-                      FOOTER
-     ..........................................................*/
+    /* ........................................................
+         PORTFOLIO SINGLE PAGE
+         .........................................................*/
+.body_backgraund {
+    background-color: #061634;
+}
 
-.foter {
+.portfolio-single-page {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.portfolio-single-page img {
+    margin-bottom: 50px;
+
+    /*щоб картинка не виходила за межі контейнера в якому знаходиться*/
+    max-width: 100%;
+    height: auto;
+    /*для того щоб картинка не ставала в один ряд із силкою*/
+    /*display: block;*/
+}
+
+.button-back {
+    /*шрифт робим болд (жирний)*/
+    font-weight: 700;
+
+    text-decoration: none;
+    color: #6479a2;
+    text-transform: uppercase;
+    /*добавим відстань між буквами*/
+    letter-spacing: 1.6px;
+
+    /*нам потрібно щоб кнопка була по всьому розтягнута*/
+    display: inline-block;
+
+    /*рамка (ширина, колір, )*/
+    border-width: 2px;
+    border-color: #6479a2;
+    border-style: solid;
+    border-radius: 50px;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 19px;
+    padding-right: 23px;
+
+    margin-bottom: 13px;
+
+    /*плавний перехід в кнопках*/
+    transition: 0.2s ease-out;
+
+}
+
+.button-back:hover {
+    color: #ffffff;
+    background-color: #6479a2;
+
+}
+
+    /* ............................................................
+                          FOOTER
+         ..........................................................*/
+
+.footer {
     background-color: #061634;
     color: #6479a2;
     padding-top: 90px;
     padding-bottom: 190px;
 }
 
-.foter p {
-    margin-top: 0px;
+.footer p {
+    margin-top: 0;
     margin-bottom: 15px;
 }
 
@@ -200,24 +272,25 @@ p.footer__name {
     font-family: 'Merriweather', serif;
 }
 
-.footer__social {
+p.footer__social {
     color: #ffffff;
 }
 
-.footer__social-icons {
+p.footer__social-icons {
     color: #ffffff;
     font-size: 32px;
 }
 
-.footer__social-icons a {
+p.footer__social-icons a {
     color: #ffffff;
     text-decoration: none;
     margin-right: 30px;
+    transition: 0.2s ease-out;
 }
 
 /*забираєм відступ справа в останньої іконки*/
 .footer__social-icons a:last-child {
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 /*добавляєм ефект щоб ссилки красились в жовтий колір*/
@@ -250,6 +323,10 @@ p.footer__name {
     padding-right: 23px;
 
     margin-bottom: 13px;
+
+    /*плавний перехід в кнопках*/
+    transition: 0.2s ease-out;
+
 }
 
 .button:hover {
@@ -257,4 +334,59 @@ p.footer__name {
     background-color: #ffffff ;
 
 }
+
+
+/* ............................................................
+                          MEDIA
+         ..........................................................*/
+
+/*При ширині екрану в 1160рх і менше - буде виконаний медіа-запит*/
+@media  (max-width: 1160px) {
+    .container {
+        width: 100%;
+    }
+
+    .col-4 {
+        width: 100%;  /*реальна ширина = width:100%; + border + padding (15+15) */
+        box-sizing: border-box; /* за замовчуванням стоїть box-sizing: content-box;*/
+
+        margin: 0;
+        margin-bottom: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    }
+
+    .header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .header__titleder {
+        font-size: 38px;
+        line-height: 48px;
+        margin-bottom: 15px;
+    }
+
+    .header__slogan {
+        font-size: 22px;
+        line-height: 38px;
+    }
+
+    .portfolio {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .footer {
+        padding-top: 70px;
+        padding-bottom: 60px;
+    }
+
+}
+
 
